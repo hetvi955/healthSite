@@ -3,7 +3,6 @@ const router = express.Router();
 const passport = require('passport');
 var LocalStrategy = require("passport-local");
 
-
 router.get("/", function(req, res) {
 	res.render("login.ejs");
 });
