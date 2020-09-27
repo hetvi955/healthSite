@@ -50,7 +50,7 @@
 				<hr>
 				<div class="row">
 				<% products.forEach(function(product) { %>
-					<% if(product.status == status) { %>
+					<% if(product.status == status && product.stock > 0) { %>
 						<div class="col-md-4 col-sm-6">
 							<div class="thumbnail-image">
 								<img src="<%= product.image %>" onclick="location.href='/details/<%= product._id %>'">
