@@ -8,6 +8,11 @@ var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var request = require("request");
 const {isLoggedIn,isLoggedInA} = require("./middleware/fixers");
+var loginRouter = require('./routes/login');
+var signupRouter = require('./routes/register');
+var adminRouter = require('./routes/admin');
+var addProfileRouter = require('./routes/addProfile');
+const User = require("./models/user")
 var dotenv = require("dotenv");
 const connectdb=require('./config/db');
 
@@ -22,18 +27,18 @@ dotenv.config({
   });
   connectdb();
 
-//routes
-var loginRouter = require('./routes/login');
-app.use('/login', loginRouter);
 
-var signupRouter = require('./routes/register');
-app.use('/register', signupRouter);
 
-var adminRouter = require('./routes/admin');
-app.use('/admin', adminRouter);
-
-var addProfileRouter = require('./routes/addProfile');
-app.use('/addProfile', addProfileRouter);
+app.use(require("express-session")({
+	secret: "Anjaneya Tripathi",
+	resave: false,
+	saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 var logout = require("./routes/logout");
 app.use('/logout',logout);
@@ -61,12 +66,8 @@ var updateroute = require("./routes/updateroute");
 app.use('/update', updateroute)
 //////// IMPORTING SCHEMAS
 //const User = require("./models/user")
-const User = require("./models/user")
-const Product = require("./models/product")
-const History = require("./models/history")
-const Cart = require("./models/cart")
-const View = require("./models/view")
-const Profile = require("./models/profile")
+
+
 /*
 var productSchema = new mongoose.Schema({
 	name: String,
@@ -146,20 +147,16 @@ userSchema.plugin(passportLocalMongoose);
 
 var User = mongoose.model("User", userSchema);*/
 
-app.use(require("express-session")({
-	secret: "Anjaneya Tripathi",
-	resave: false,
-	saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
 
 ///////////////// - CUSTOMER - /////////////////
 
 ///////////////// - LOGIN & REGISTER - /////////////////
+
+app.use('/login', loginRouter);
+app.use('/register', signupRouter);
+app.use('/admin', adminRouter);
+app.use('/addProfile', addProfileRouter);
 
 app.get("/", function(req, res) {
 	res.redirect("/login");
