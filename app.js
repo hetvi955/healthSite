@@ -64,6 +64,8 @@ var pendingorderroute = require("./routes/pendingorder");
 app.use('/pendingOrders', pendingorderroute)
 var updateroute = require("./routes/updateroute");
 app.use('/update', updateroute)
+var newsroute = require("./routes/news");
+app.use('/news',newsroute)
 //////// IMPORTING SCHEMAS
 //const User = require("./models/user")
 
