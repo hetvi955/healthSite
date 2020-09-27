@@ -8,12 +8,32 @@ var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var request = require("request");
 
+var dotenv = require("dotenv");
+const connectdb=require('./config/db');
+
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 
-mongoose.connect("mongodb://localhost/form_builder");
+//connect to cloud db
+dotenv.config({
+	path:'./config/config.env'
+  });
+  connectdb();
+
+//routes
+var loginRouter = require('./routes/login');
+app.use('/login', loginRouter);
+
+var signupRouter = require('./routes/register');
+app.use('/register', signupRouter);
+
+var adminRouter = require('./routes/admin');
+app.use('/admin', adminRouter);
+
+var addProfileRouter = require('./routes/addProfile');
+app.use('/addProfile', addProfileRouter);
 
 var productSchema = new mongoose.Schema({
 	name: String,
@@ -112,78 +132,10 @@ app.get("/", function(req, res) {
 	res.redirect("/login");
 });
 
-app.get("/login", function(req, res) {
-	res.render("login.ejs");
-});
-
-app.get("/register", function(req, res) {
-	res.render("register.ejs");
-});
-
-app.post("/register", function(req, res) {
-	if(req.body.password == req.body.cpassword) {
-		User.register(new User({username: req.body.username, type: "customer"}), req.body.password, function(err, user) {
-			if(err) {
-				console.log(err);
-				return res.render("register.ejs");
-			}
-			var newView = {
-				product: []
-			}
-			View.create(newView, function(err, newView) {
-				if(err) {
-					console.log(err);
-				}
-				else {
-					user.view = newView._id;
-					user.save(function(err,callback) {
-						var newCart = {
-							product: []
-						}
-						Cart.create(newCart, function(err, newCart) {
-							if(err) {
-								console.log(err);
-							}
-							else {
-								user.cart = newCart._id;
-								user.save(function(err,callback) {
-                                    passport.authenticate("local")(req, res, function() {
-									res.redirect("/addProfile");
-									});
-								});
-							}
-						});
-
-					});
-				}
-			});
-		});
-	}
-	else {
-		res.redirect("/register");
-	}
-});
-
-app.post("/login", passport.authenticate("local", 
-	{
-		successRedirect: "/home",
-		failureRedirect: "/"
-	}), function(req, res) {
-});
-
+//logout
 app.get("/logout", function(req, res) {
 	req.logout();
 	res.redirect("/");
-});
-
-///////////////// - PROFILE PAGE - /////////////////
-
-app.get("/addProfile", function(req, res) {
-	res.render("profileImage.ejs");
-});
-
-app.get("/addProfile/:i", function(req, res) {
-	res.render("profileDetails.ejs", {i: req.params.i});
 });
 
 app.post("/addProfile/:i", isLoggedIn, function(req, res) {
@@ -407,46 +359,6 @@ app.get("/orders", isLoggedIn, function(req, res) {
 	})
 });
 
-app.get("/addProfile", function(req, res) {
-	res.render("profile.ejs");
-});
-
-///////////////// - ADMIN - /////////////////
-
-///////////////// - LOGIN & REGISTER - /////////////////
-
-app.get("/admin/login", function(req, res) {
-	res.render("adminLogin.ejs")
-});
-
-app.get("/admin/register", function(req, res) {
-	res.render("adminRegister.ejs");
-});
-
-app.post("/admin/register", function(req, res) {
-	if(req.body.password == req.body.cpassword) {
-		User.register(new User({username: req.body.username, type: "admin"}), req.body.password, function(err, user) {
-			if(err) {
-				console.log(err);
-				return res.render("adminRegister.ejs");
-			}
-			passport.authenticate("local")(req, res, function() {
-				res.redirect("/admin/login");
-			});
-		});
-	}	
-	else {
-		res.redirect("/register");
-	}
-});
-
-app.post("/admin/login", passport.authenticate("local", 
-	{
-		successRedirect: "/warehouse",
-		failureRedirect: "/admin/login"
-	}), function(req, res) {
-});
-
 ///////////////// - SHELF FUNCTIONALITY - /////////////////
 
 app.get("/warehouse", isLoggedInA, function(req, res) {
@@ -577,7 +489,6 @@ function isLoggedInA(req, res, next) {
 app.listen(3000, function() {
 	console.log("Listening");
 });
-
 
 // 1.Add billing History
 // 2.Add view recent
