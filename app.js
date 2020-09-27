@@ -464,7 +464,7 @@ app.get("/warehouse/add", isLoggedInA, function(req, res) {
 	res.render("warehouse.ejs");
 });
 
-app.post("/warehouse", isLoggedIn, function(req, res) {
+app.post("/warehouse", isLoggedInA, function(req, res) {
 	var name = req.body.productName;
 	var price = req.body.price;
 	var category = req.body.category;
