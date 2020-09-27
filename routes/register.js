@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-
+//const User = require("./models/user")
+const User = require("../models/user")
+const View = require("../models/view")
+const Cart = require("../models/cart")
 router.get("/", function(req, res) {
 	res.render("register.ejs");
 });

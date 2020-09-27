@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >-->
+    <link rel="stylesheet" href="style.css" >
+    <title>Document</title>
+</head>
+<body>
+   <form  class = "form1" action="">
+       
+       <input type="submit" value="news" id="submit">
+</form> 
+<div class="container">
+    <ul class="newslist"></ul>
+</div>
+
+
+<script>
+     const searchform = document.querySelector('.form1')
+     const input = document.querySelector('.text')
+     const newslist = document.querySelector('.newslist')
+     const container = document.querySelector('.container')
+     var counter ={ count : 0}
+     
+     searchform.addEventListener('submit',retrieve)
+     function retrieve(e) {
+         
+         e.preventDefault()
+         console.log(counter.count)
+         if(counter.count != 0){
+            while(container.firstChild && container.removeChild(container.firstChild));
+         }
+         
+         const apikey = '21c78d100b7d4caa9f4a33fb8b5e392d'
+         //let topic = input.value ;
+         let topic="healthcare"
+         let url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=21c78d100b7d4caa9f4a33fb8b5e392d`
+         console.log(topic)
+         
+         var ourRequest = new XMLHttpRequest();
+         ourRequest.open("GET",url,{crossDomain: true})
+         ourRequest.onload = function () {
+            console.log("hey")
+            var ourData = JSON.parse(ourRequest.responseText)
+            console.log(ourData)
+            for(let i =0 ;i<ourData.articles.length; i++){
+                let d =document.createElement("div")
+                let p = document.createElement("h1")
+                let p1 = document.createElement("p")
+                let b = document.createElement("br")
+                let t = document.createTextNode(ourData.articles[i].title)
+                let t1 = document.createTextNode(ourData.articles[i].description)
+                let img = document.createElement("img")
+                let a = document.createElement("a")
+                var link = document.createTextNode("This is link");
+                a.appendChild(link)
+                a.href = ourData.articles[i].url
+                img.src = ourData.articles[i].urlToImage
+                img.alt ="image not available"
+                p.appendChild(t)
+                p1.appendChild(t1)
+                d.appendChild(p)
+                d.appendChild(img)
+                d.appendChild(b)
+                d.appendChild(a)
+                d.appendChild(p1)
+                 d.style.height="100%";
+                 d.style.width= "100%";
+                 d.style.border= "5px solid black";
+                 d.style.position= "relative";
+                d.style.backgroundcolor="white";
+                 d.style.boxshadow= "15px 20px 15px #3e3d53";
+                
+                container.appendChild(d)
+                
+                
+
+            }
+            counter.count++
+        };
+        ourRequest.send();
+        
+
+
+
+     }
+</script>
+
+
+
+</body>
+</html>
