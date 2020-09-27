@@ -1,5 +1,5 @@
 html {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	margin: 0;
 	padding: 0;
 }
@@ -9,7 +9,7 @@ body {
 	font-family: 'Raleway', sans-serif;
 	margin: 0;
 	padding: 0;
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	margin-top: 5%;
 }
 
@@ -54,12 +54,12 @@ p {
 }
 
 .row {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	color: #1e1e1e;
 }
 
 .box {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	color: #1e1e1e;
 }
 
@@ -70,13 +70,13 @@ p {
 .warehouse {
 	padding: 5% 20%;
 	text-align: center;
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 
 }
 
 #submit {
 	border-radius: 5px;
-	color: #e3e3e3;
+	color: #E7F3FF;
 	background-color: #1e1e1e;
 	width: 80%;
 	padding: 1% 0;
@@ -97,7 +97,7 @@ p {
 
 #cart {
 	background-color: #1e1e1e;
-	color: #e3e3e3;
+	color: #E7F3FF;
 	margin: 15% auto;
 	border-radius: 5px;
 	padding: 1% 5%;
@@ -105,13 +105,13 @@ p {
 
 .store {
 	padding: 5%;
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 }
 
 .detail {
 	width: 100%;
 	padding: 5% 10%;
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 }
 
 #details {
@@ -120,9 +120,9 @@ p {
 
 #addToCart {
 	background-color: #1e1e1e;
-	border: 0 solid #e3e3e3;
+	border: 0 solid #E7F3FF;
 	width: 100%;
-	color: #e3e3e3;
+	color: #E7F3FF;
 	font-size: 20px;
 }
 
@@ -136,7 +136,7 @@ p {
 }
 
 .cart {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	padding: 5% 10%;
 }
 
@@ -157,7 +157,7 @@ p {
 
 #checkout {
 	background-color: #1e1e1e;
-	color: #e3e3e3;
+	color: #E7F3FF;
 	text-align: center;
 	width: 40%;
 	margin-left: 30%;
@@ -166,13 +166,13 @@ p {
 }
 
 .acknowledge {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	padding: 10%;
 	text-align: center;
 }
 
 .history {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	width: 100%;
 	padding: 5% 20%;
 }
@@ -197,19 +197,19 @@ nav {
 }
 
 .fa.fa-navicon {
-  color: #e3e3e3;
+  color: #E7F3FF;
   width: 100%;
 }
 
 #editBtn {
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	color: #1e1e1e;
-	border: 0px solid #e3e3e3;
+	border: 0px solid #E7F3FF;
 }
 
 #completed {
 	background-color: #1e1e1e;
-	color: #e3e3e3;
+	color: #E7F3FF;
 	text-align: center;
 	border-radius: 5px;
 	padding: 1% 5%;
@@ -217,7 +217,7 @@ nav {
 
 .profile {
 	padding: 15% 10%;
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	color: #1e1e1e;
 	text-align: center;
 }
@@ -229,7 +229,7 @@ nav {
 
 #profileBtn {
 	background-color: #1e1e1e;
-	color: #e3e3e3;
+	color: #E7F3FF;
 	text-align: center;
 	border-radius: 5px;
 	padding: 1% 5%; 
@@ -237,7 +237,7 @@ nav {
 
 .profilePage {
 	padding: 5% 10%;
-	background-color: #e3e3e3;
+	background-color: #E7F3FF;
 	color: #1e1e1e;
 	text-align: center;
 }

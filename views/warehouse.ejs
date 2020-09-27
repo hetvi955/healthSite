@@ -1,8 +1,8 @@
 <% include partials/header %>
 
 	<nav class="navbar navbar-expand-lg sticky-top">
-		  	<a class="navbar-brand" href="/warehouse" id="companyName" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">
-		    	<b>Smart Shop</b>
+		  	<a class="navbar-brand" href="/warehouse" id="companyName" style="color: #E7F3FF; font-family: 'Raleway', sans-serif;">
+		    	<b>Health and Medicine</b>
 		  	</a>
 		  	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		    	<span class="navbar-toggler-icon"><i class="fa fa-navicon" style="font-size: 30px"></i></span>
@@ -10,20 +10,20 @@
 		  	<div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-right: 5%">
 		    	<ul class="navbar-nav ml-auto">
 		      		<li class="nav-item">
-		        		<a class="nav-link" href="/pendingOrders" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;">Pending Orders</a>
+		        		<a class="nav-link" href="/pendingOrders" style="color: #E7F3FF; font-family: 'Raleway', sans-serif;">Pending Orders</a>
 		      		</li>
 		      		<li class="nav-item">
-		        		<a class="nav-link" href="/warehouse/add" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Add Item to Shelf</a>
+		        		<a class="nav-link" href="/warehouse/add" style="color: #E7F3FF; font-family: 'Raleway', sans-serif;", sans-serif">Add Item to Shelf</a>
 		      		</li>
 		      		<li class="nav-item">
-		        		<a class="nav-link" href="/logout" style="color: #e3e3e3; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
+		        		<a class="nav-link" href="/logout" style="color: #E7F3FF; font-family: 'Raleway', sans-serif;", sans-serif">Sign Out</a>
 		      		</li>
 		    	</ul>
 		  	</div>
 	</nav>
 
 <div class="warehouse">
-	<h1>Add Product to Shelf</h1>
+	<h1>Add Medicine to Shelf</h1>
 	<br>
 	<hr>
 	<br>
@@ -33,8 +33,8 @@
 		<input class="input" type="number" name="price" placeholder="Price" required>
 		<br>
 		<select name="unit" id="dropdown">
-			<option value="kg">Kilograms</option>
-		    <option value="pc">Piece</option>
+			<option value="pc">Piece</option>
+			<option value="kg">Kilogram</option>
 		</select>
 		<br>
 		<input class="input" type="number" name="stock" placeholder="Stock" required>
@@ -53,7 +53,6 @@
 		<input class="input" type="text" name="description" placeholder="Description" style="height: 100px" required>
 		<br>
 		<select name="status" id="dropdown">
-			<option value="Today's Special">Today's Special</option>
 			<option value="Offer">Offer</option>
 		    <option value="none">None</option>
 		</select>
