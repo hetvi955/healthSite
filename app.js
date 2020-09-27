@@ -7,7 +7,7 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var request = require("request");
-
+const {isLoggedIn,isLoggedInA} = require("./middleware/fixers");
 var dotenv = require("dotenv");
 const connectdb=require('./config/db');
 
@@ -35,6 +35,39 @@ app.use('/admin', adminRouter);
 var addProfileRouter = require('./routes/addProfile');
 app.use('/addProfile', addProfileRouter);
 
+var logout = require("./routes/logout");
+app.use('/logout',logout);
+var profileroute = require("./routes/profileroute");
+app.use('/profile',profileroute);
+var homee= require("./routes/home");
+app.use('/home',homee);
+var cartroute = require("./routes/cartroute");
+app.use('/cart',cartroute)
+var detailsroute = require("./routes/details");
+app.use('/details',detailsroute)
+var addprtofileroute = require("./routes/addprofile2");
+app.use('/addProfile',addprtofileroute)
+var billsroute = require("./routes/bills");
+app.use('/bill',billsroute)
+var historyroute = require("./routes/historyroute");
+app.use('/history',historyroute)
+var orderroute = require("./routes/orderroute");
+app.use('/orders',orderroute)
+var warehouseroute = require("./routes/warehouse");
+app.use('/warehouse',warehouseroute)
+var pendingorderroute = require("./routes/pendingorder");
+app.use('/pendingOrders', pendingorderroute)
+var updateroute = require("./routes/updateroute");
+app.use('/update', updateroute)
+//////// IMPORTING SCHEMAS
+//const User = require("./models/user")
+const User = require("./models/user")
+const Product = require("./models/product")
+const History = require("./models/history")
+const Cart = require("./models/cart")
+const View = require("./models/view")
+const Profile = require("./models/profile")
+/*
 var productSchema = new mongoose.Schema({
 	name: String,
 	price: String,
@@ -111,7 +144,7 @@ var userSchema = new mongoose.Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-var User = mongoose.model("User", userSchema);
+var User = mongoose.model("User", userSchema);*/
 
 app.use(require("express-session")({
 	secret: "Anjaneya Tripathi",
@@ -133,12 +166,12 @@ app.get("/", function(req, res) {
 });
 
 //logout
-app.get("/logout", function(req, res) {
+/*app.get("/logout", function(req, res) {
 	req.logout();
 	res.redirect("/");
-});
+});*/
 
-app.post("/addProfile/:i", isLoggedIn, function(req, res) {
+/*app.post("/addProfile/:i", isLoggedIn, function(req, res) {
 	var email = req.body.email;
 	var contact = req.body.mobile;
 	var address = req.params.i;
@@ -157,9 +190,9 @@ app.post("/addProfile/:i", isLoggedIn, function(req, res) {
 			res.redirect("/home");
 		}
 	});
-});
+});*/
 
-app.get("/profile", isLoggedIn, function(req, res) {
+/*app.get("/profile", isLoggedIn, function(req, res) {
 	Profile.find({}, function(err, profiles) {
 		if(err) {
 			console.log(err);
@@ -168,11 +201,11 @@ app.get("/profile", isLoggedIn, function(req, res) {
 			res.render("profile.ejs", {profiles: profiles, user: req.user});
 		}
 	});
-});
+});*/
 
 ///////////////// - HOME PAGE - /////////////////
 
-app.get("/home", isLoggedIn, function(req, res) {
+/*app.get("/home", isLoggedIn, function(req, res) {
 	Product.find({}, function(err, allProducts) {
 		if(err) {
 			console.log(err);
@@ -193,11 +226,11 @@ app.get("/home/:category", isLoggedIn, function(req, res) {
 			res.render("category.ejs", {products: allProducts, category: category, user: req.user});
 		}
 	});
-});
+});*/
 
 ///////////////// - DETAIL VIEW - /////////////////
 
-app.get("/details/:productId", isLoggedIn, function(req, res) {
+/*app.get("/details/:productId", isLoggedIn, function(req, res) {
 	var id = req.params.productId;
 	var user = req.user;
 	View.findById(user.view, function(err, view) {
@@ -217,9 +250,10 @@ app.get("/details/:productId", isLoggedIn, function(req, res) {
 			res.render("detail.ejs", {product: product, user: req.user});
 		}
 	});
-});
+});*/
 
 ///////////////// - CART FUNCTIONALITY - /////////////////
+/*
 
 app.get("/cart", isLoggedIn, function(req, res) {
 	var user = req.user;
@@ -292,10 +326,10 @@ app.delete("/cart/:id", isLoggedIn,function(req, res) {
 		}
 	});
 });
-
+*/
 ///////////////// - BILL & PURCHASE HISTORY - /////////////////
 
-app.post("/bill", isLoggedIn, function(req, res) {
+/*app.post("/bill", isLoggedIn, function(req, res) {
 	var user = req.user;
 	var temp = [];
 	var n = 0;
@@ -334,9 +368,9 @@ app.post("/bill", isLoggedIn, function(req, res) {
 app.get("/bill", isLoggedIn, function(req, res) {
 	var user = req.user;
 	res.render("bill.ejs", {orderId: user.cart, user: req.user});
-});
+});*/
 
-app.get("/history", isLoggedIn, function(req, res) {
+/*app.get("/history", isLoggedIn, function(req, res) {
 	var user = req.user;
 	History.find().populate('product').exec(function(err, product) {
 		if(err) {
@@ -346,9 +380,9 @@ app.get("/history", isLoggedIn, function(req, res) {
 			res.render("history.ejs", {history: product, user: user});
 		}
 	});
-});
+});*/
 
-app.get("/orders", isLoggedIn, function(req, res) {
+/*app.get("/orders", isLoggedIn, function(req, res) {
 	History.find().populate('product').exec(function(err, product) {
 		if(err) {
 			console.log(err);
@@ -357,11 +391,11 @@ app.get("/orders", isLoggedIn, function(req, res) {
 			res.render("orders.ejs", {orders: product, user: req.user});
 		}
 	})
-});
+});*/
 
 ///////////////// - SHELF FUNCTIONALITY - /////////////////
 
-app.get("/warehouse", isLoggedInA, function(req, res) {
+/*app.get("/warehouse", isLoggedInA, function(req, res) {
 	Product.find({}, function(err, allProducts) {
 		if(err) {
 			console.log(err);
@@ -403,9 +437,9 @@ app.post("/warehouse", isLoggedInA, function(req, res) {
 			res.redirect("/warehouse");
 		}
 	});
-});
+});*/
 
-app.get("/update/:id", isLoggedInA, function(req, res) {
+/*app.get("/update/:id", isLoggedInA, function(req, res) {
 	Product.findById(req.params.id, function(err, product) {
 		if(err) {
 			console.log(err);
@@ -414,9 +448,9 @@ app.get("/update/:id", isLoggedInA, function(req, res) {
 			res.render("edit.ejs", {product: product});
 		}
 	});
-});
+});*/
 
-app.put("/warehouse/:id", isLoggedInA, function(req, res) {
+/*app.put("/warehouse/:id", isLoggedInA, function(req, res) {
 	var name = req.body.productName;
 	var price = req.body.price;
 	var category = req.body.category;
@@ -438,9 +472,9 @@ app.put("/warehouse/:id", isLoggedInA, function(req, res) {
 	Product.findByIdAndUpdate(req.params.id, updatedProduct, function(err, product) {
 		res.redirect("/warehouse");
 	});
-});
+});*/
 
-app.get("/pendingOrders", isLoggedInA, function(req, res) {
+/*app.get("/pendingOrders", isLoggedInA, function(req, res) {
 	History.find().populate('product').exec(function(err, allHistory) {
 		if(err) {
 			console.log(err);
@@ -470,9 +504,9 @@ app.post("/pendingOrders/:id", isLoggedInA, function(req, res) {
 			res.redirect("/pendingOrders");
 		}
 	});
-});
+});*/
 
-function isLoggedIn(req, res, next) {
+/*function isLoggedIn(req, res, next) {
 	if(req.isAuthenticated() && req.user.type === "customer") {
 		return next();
 	}
@@ -484,7 +518,7 @@ function isLoggedInA(req, res, next) {
 		return next();
 	}
 	res.redirect("/admin/login");
-};
+};*/
 
 app.listen(3000, function() {
 	console.log("Listening");
