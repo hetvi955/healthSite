@@ -79,6 +79,8 @@ var updateroute = require("./routes/updateroute");
 app.use('/update', updateroute)
 var newsroute = require("./routes/news");
 app.use('/news',newsroute)
+var nearbysearchroute = require("./routes/search");
+app.use('/search',nearbysearchroute)
 //////// IMPORTING SCHEMAS
 //const User = require("./models/user")
 
