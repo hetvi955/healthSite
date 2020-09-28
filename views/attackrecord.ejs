@@ -1,94 +1,132 @@
 <% include partials/header %>
-  
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
-
-<form method="POST" action="">
-    <label for="date">Start time</label>
-    <input type="datetime" id="date"/>
-    <br>
-    <label for="date">End time</label>
-    <input type="datetime" id="date"/>
-    <br>
-    <label>Attack type </label>
-    <select>
-        <option value="Don't know yet">Don't know yet</option>
-        <option value="Migrane">Migrane</option>
-        <option value="prodrome">prodrome</option>
-        <option value="Postdrome">Postdrome</option>
-        <option value="prefer not to say">prefer not to say</option>
-    </select>
-    <br>
-    <label>Pain level </label>
-    <select>
-        <option value="hurts worst">hurts worst</option>
-        <option value="Severe">Severe</option>
-        <option value="Moderate">Moderate</option>
-        <option value="mild">mild</option>
-        <option value="hurts a bit">hurts a bit </option>
-        <option value="No pain">No pain </option>
-    </select>
-    <br>
-    <label for="treatment">Medication you took</label>
-    <input type="text" id="treatment"/>
-    <br>
-    <label>relief methods </label>
-    <select>
-        <option value="sleep">sleep</option>
-        <option value="yoga/meditation">yoga/meditation</option>
-        <option value="Ice packs">Ice packs</option>
-        <option value="Hot shower">Hot shower</option>
-        <option value="Cold shower">Cold shower</option>
-        <option value="Drink water">Drink water</option>
-        <option value="Heat pad">Heat pad</option>
-        <option value="Caffiene">Caffiene</option>
-        <option value="food">food</option>
-        <option value="Stay indoor">Stay indoor</option>
-        <option value="other">other</option>
-    </select>
-    <label>Symptoms </label>
-    <select>
-        <option value="Nasal congestion">Nasal congestion</option>
-        <option value="Neck Pain">Neck Pain</option>
-        <option value="Insomnia">Insomnia</option>
-        <option value="Heat">Heat</option>
-        <option value="Fatigue">Fatigue</option>
-        <option value="blurred vision">blurred vision</option>
-        <option value="diarrhea">diarrhea</option>
-        <option value="nausea">nausea</option>
-        <option value="vomiting">vomiting</option>
-        <option value="pounding pain">pounding pain</option>
-        <option value="other">other</option>
-    </select>
-    <label>Did you see it coming? </label>
-    <select>
-        <option value="No">No</option>
-        <option value="Weakness">Weakness</option>
-        <option value="fatigue/achiness">fatigue/achiness</option>
-        <option value="headache">headache</option>
-        <option value="muscle stiffness">muscle stiffness</option>
-        <option value="unusually depressed">unusually depressed</option>
+    <title>My record</title>
+</head>
+<body>
+    <div class="myrecord">
+        <h1 style="margin:0;padding-left: 100px; color: navy; padding-top: 30px; background-color: #E7F3FF;"><i class="fa fa-heartbeat" style="padding-right: 10px;" aria-hidden="true"></i>My Health Record</h1>
+        <p style="margin:0;padding-left: 300px; background-color: #E7F3FF;"> ~ Help us help you! ~</p>
         
-        <option value="other">other</option>
-    </select>
-    <label>how did it affected your activities? </label>
-    <select>
-        <option value="No effect">No effect</option>
-        <option value="missed family time">missed family time</option>
-        <option value="Missed school">Missed school</option>
-        <option value="missed work">missed work</option>
-        <option value="slower at work">slower at work</option>
-        <option value="missed social activities">missed social activities</option>
+        <hr style="margin:0;">
+        <form method="POST" action="" id="formdata">
+            <label for="date" style="padding-right: 5px;">Start time</label>
+            <input type="datetime" id="date" style="padding: 5px;"/>
+            <br><br>
+            <label for="date" style="padding-right: 5px;">End time </label>
+            <input type="datetime" id="date" style="padding: 5px;"/>
+            <br><br>
+            <label style="padding-right: 5px;">Attack type  </label>
+            <select style="padding: 5px;">
+                <option value="Don't know yet">Don't know yet</option>
+                <option value="Migrane">Migrane</option>
+                <option value="prodrome">prodrome</option>
+                <option value="Postdrome">Postdrome</option>
+                <option value="prefer not to say">prefer not to say</option>
+            </select>
+            <br><br>
+            <label style="padding-right: 5px;">Pain level </label>
+            <select style="padding: 5px;">
+                <option value="hurts worst">hurts worst</option>
+                <br>
+                <option value="Severe">Severe</option>
+                <br>
+                <option value="Moderate">Moderate</option>
+                <br>
+                <option value="mild">mild</option>
+                <br>
+                <option value="hurts a bit">hurts a bit </option>
+                <br>
+                <option value="No pain">No pain </option>
+            </select>
+            <br><br>
+            <label for="treatment" style="padding-right: 5px;">Medication opted</label>
+            <input type="text" id="treatment" style="padding: 5px;"/>
+            <br><br>
+            <label style="padding-right: 5px;">Relief methods </label>
+            <select style="padding: 5px;">
+                <option value="sleep">sleep</option>
+                <option value="yoga/meditation">yoga/meditation</option>
+                <option value="Ice packs">Ice packs</option>
+                <option value="Hot shower">Hot shower</option>
+                <option value="Cold shower">Cold shower</option>
+                <option value="Drink water">Drink water</option>
+                <option value="Heat pad">Heat pad</option>
+                <option value="Caffiene">Caffiene</option>
+                <option value="food">food</option>
+                <option value="Stay indoor">Stay indoor</option>
+                <option value="other">other</option>
+            </select>
+            <br><br>
+            <label style="padding-right: 5px;">Symptoms </label>
+            <select style="padding: 5px;">
+                <option value="Nasal congestion">Nasal congestion</option>
+                <option value="Neck Pain">Neck Pain</option>
+                <option value="Insomnia">Insomnia</option>
+                <option value="Heat">Heat</option>
+                <option value="Fatigue">Fatigue</option>
+                <option value="blurred vision">blurred vision</option>
+                <option value="diarrhea">diarrhea</option>
+                <option value="nausea">nausea</option>
+                <option value="vomiting">vomiting</option>
+                <option value="pounding pain">pounding pain</option>
+                <option value="other">other</option>
+            </select>
+            <br><br>
+            <label style="padding-right: 5px;">Did you see it coming? </label>
+            <select style="padding: 5px;">
+                <option value="No">No</option>
+                <option value="Weakness">Weakness</option>
+                <option value="fatigue/achiness">fatigue/achiness</option>
+                <option value="headache">headache</option>
+                <option value="muscle stiffness">muscle stiffness</option>
+                <option value="unusually depressed">unusually depressed</option>
+                
+                <option value="other">other</option>
+            </select>
+            <br><br>
+            <label style="padding-right: 5px;">how did it affected your activities? </label>
+            <select style="padding: 5px;">
+                <option value="No effect">No effect</option>
+                <option value="missed family time">missed family time</option>
+                <option value="Missed school">Missed school</option>
+                <option value="missed work">missed work</option>
+                <option value="slower at work">slower at work</option>
+                <option value="missed social activities">missed social activities</option>
+                
+                <option value="other">other</option>
+            </select>
+            <br><br>
+            <label for="note" style="padding-right: 5px;">Short Note</label>
+            <input type="text" id="note" style="padding: 5px;"/>
         
-        <option value="other">other</option>
-    </select>
-    <label for="note">Short Note</label>
-    <input type="text" id="note"/>
-
+            <br><br><br>
+            <input type="submit" value="Save my record" class="btn btn-primary"/>
+        
+        
+        </form>
+    </div>
+    <style>
     
-    <input type="submit" value="Save"/>
+        #formdata{
+            background-color: #E7F3FF; 
+            padding-left: 100px;
+            padding-top: 70px;
+        }
+    </style>
+</body>
+</html>
 
 
-</form>
+
+
 
 
 

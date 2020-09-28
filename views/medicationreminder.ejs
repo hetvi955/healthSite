@@ -1,16 +1,35 @@
 <% include partials/header %>
   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>reminder</title>
+</head>
 
-<form method="POST" action="">
+<body style="background-color: #E7F3FF;">
+    <h1 style="margin:0;padding-left: 100px; color: navy; padding-top: 30px; background-color: #E7F3FF;"><i class="fa fa-heartbeat" style="padding-right: 10px;" aria-hidden="true"></i>Remind me to..</h1>
+        <p style="margin:0;padding-left: 280px; background-color: #E7F3FF;"> ~ Help us help you! ~</p>
+        
+        <hr style="margin:0;">
+        <br><br>
+    
+</body>
+</html>
+
+<form  style=' padding-left: 100px;' method="POST" action="">
     <label for="date"> Start DATE</label>
     <input type="date" id="date"/>
-    <br>
+    <br><br>
     
     <label for="treatment">Medication Details</label>
     <input type="text" id="treatment" value="relpax,paracetamol etc."/>
 
-    <br>
+    <br><br>
     <label for="date"> Reminder Frequency</label>
     <select>
         <option value="1">1</option>
@@ -30,14 +49,14 @@
         <option value="month">month</option>
        
     </select>
-    <br>
+    <br><br>
 
     <label for="note">Short Note</label>
     <input type="text" id="note"/>
-    <br>
+    <br><br>
 
     
-    <input type="submit" value="Save"/>
+    <input type="submit" value="Save" class='btn btn-primary'/>
 
 
 </form>
