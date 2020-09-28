@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get("/",(req,res) => {
-    res.redirect("index.html")
+    res.redirect("search.html")
 })
 
 

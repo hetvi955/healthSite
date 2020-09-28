@@ -1,0 +1,96 @@
+<% include partials/header %>
+  
+
+
+<form method="POST" action="">
+    <label for="date">Start time</label>
+    <input type="datetime" id="date"/>
+    <br>
+    <label for="date">End time</label>
+    <input type="datetime" id="date"/>
+    <br>
+    <label>Attack type </label>
+    <select>
+        <option value="Don't know yet">Don't know yet</option>
+        <option value="Migrane">Migrane</option>
+        <option value="prodrome">prodrome</option>
+        <option value="Postdrome">Postdrome</option>
+        <option value="prefer not to say">prefer not to say</option>
+    </select>
+    <br>
+    <label>Pain level </label>
+    <select>
+        <option value="hurts worst">hurts worst</option>
+        <option value="Severe">Severe</option>
+        <option value="Moderate">Moderate</option>
+        <option value="mild">mild</option>
+        <option value="hurts a bit">hurts a bit </option>
+        <option value="No pain">No pain </option>
+    </select>
+    <br>
+    <label for="treatment">Medication you took</label>
+    <input type="text" id="treatment"/>
+    <br>
+    <label>relief methods </label>
+    <select>
+        <option value="sleep">sleep</option>
+        <option value="yoga/meditation">yoga/meditation</option>
+        <option value="Ice packs">Ice packs</option>
+        <option value="Hot shower">Hot shower</option>
+        <option value="Cold shower">Cold shower</option>
+        <option value="Drink water">Drink water</option>
+        <option value="Heat pad">Heat pad</option>
+        <option value="Caffiene">Caffiene</option>
+        <option value="food">food</option>
+        <option value="Stay indoor">Stay indoor</option>
+        <option value="other">other</option>
+    </select>
+    <label>Symptoms </label>
+    <select>
+        <option value="Nasal congestion">Nasal congestion</option>
+        <option value="Neck Pain">Neck Pain</option>
+        <option value="Insomnia">Insomnia</option>
+        <option value="Heat">Heat</option>
+        <option value="Fatigue">Fatigue</option>
+        <option value="blurred vision">blurred vision</option>
+        <option value="diarrhea">diarrhea</option>
+        <option value="nausea">nausea</option>
+        <option value="vomiting">vomiting</option>
+        <option value="pounding pain">pounding pain</option>
+        <option value="other">other</option>
+    </select>
+    <label>Did you see it coming? </label>
+    <select>
+        <option value="No">No</option>
+        <option value="Weakness">Weakness</option>
+        <option value="fatigue/achiness">fatigue/achiness</option>
+        <option value="headache">headache</option>
+        <option value="muscle stiffness">muscle stiffness</option>
+        <option value="unusually depressed">unusually depressed</option>
+        
+        <option value="other">other</option>
+    </select>
+    <label>how did it affected your activities? </label>
+    <select>
+        <option value="No effect">No effect</option>
+        <option value="missed family time">missed family time</option>
+        <option value="Missed school">Missed school</option>
+        <option value="missed work">missed work</option>
+        <option value="slower at work">slower at work</option>
+        <option value="missed social activities">missed social activities</option>
+        
+        <option value="other">other</option>
+    </select>
+    <label for="note">Short Note</label>
+    <input type="text" id="note"/>
+
+    
+    <input type="submit" value="Save"/>
+
+
+</form>
+
+
+
+
+<% include partials/footer %>
