@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >-->
     <link rel="stylesheet" href="style.css" >
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
+    <title>Health News</title>
 </head>
-<body>
+<body style="background-color: #E7F3FF;">
    <form  class = "form1" action="">
-       
-       <input type="submit" value="news" id="submit">
-</form> 
+        <input type="submit" value="Get latest news" id="submit" class='btn btn-success'>
+    <p style="font-family: 'Quicksand', sans-serif; font-size: 16px; padding: 4px; margin-bottom:15px; margin-left: 40%">Never miss out on the latest health news!</p>
+    </form> 
 <div class="container">
     <ul class="newslist"></ul>
 </div>
@@ -46,33 +49,40 @@
             var ourData = JSON.parse(ourRequest.responseText)
             console.log(ourData)
             for(let i =0 ;i<ourData.articles.length; i++){
-                let d =document.createElement("div")
+                let d =document.createElement("div");
+                d.setAttribute('class', 'container');
+
                 let p = document.createElement("h1")
+                p.setAttribute('id', 'title')
                 let p1 = document.createElement("p")
                 let b = document.createElement("br")
-                let t = document.createTextNode(ourData.articles[i].title)
-                let t1 = document.createTextNode(ourData.articles[i].description)
+                let t = document.createTextNode(ourData.articles[i].title);
+                let t1 = document.createTextNode(ourData.articles[i].description);
+
                 let img = document.createElement("img")
+                img.style.width='75%'
                 let a = document.createElement("a")
-                var link = document.createTextNode("This is link");
-                a.appendChild(link)
+        
+                var link = document.createTextNode("Read more...");
+                a.appendChild(link);
+                a.setAttribute('id','link')
                 a.href = ourData.articles[i].url
                 img.src = ourData.articles[i].urlToImage
                 img.alt ="image not available"
-                p.appendChild(t)
+                p.appendChild(t);
                 p1.appendChild(t1)
                 d.appendChild(p)
                 d.appendChild(img)
                 d.appendChild(b)
                 d.appendChild(a)
                 d.appendChild(p1)
-                 d.style.height="100%";
-                 d.style.width= "100%";
-                 d.style.border= "5px solid black";
+                 d.style.height="80%";
+                 d.style.width= "80%";
+                 d.style.border= "2px solid grey";
                  d.style.position= "relative";
                 d.style.backgroundcolor="white";
                  d.style.boxshadow= "15px 20px 15px #3e3d53";
-                
+                d.style.borderRadius='8px'
                 container.appendChild(d)
                 
                 
@@ -87,6 +97,10 @@
 
      }
 </script>
+<style>
+    
+
+</style>
 
 
 

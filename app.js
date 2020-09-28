@@ -7,7 +7,6 @@ var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var passportLocalMongoose = require("passport-local-mongoose");
 var request = require("request");
-const {isLoggedIn,isLoggedInA} = require("./middleware/fixers");
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/register');
 var adminRouter = require('./routes/admin');
@@ -26,6 +25,20 @@ dotenv.config({
 	path:'./config/config.env'
   });
   connectdb();
+  
+var userSchema = new mongoose.Schema({
+	username: String,
+	password: String,
+	type: String,
+	cart: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "Cart"
+	},
+	view: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "View"
+	}
+});
 
 
 
@@ -133,21 +146,6 @@ var profileSchema = new mongoose.Schema({
 
 var Profile = mongoose.model("Profile", profileSchema);
 
-var userSchema = new mongoose.Schema({
-	username: String,
-	password: String,
-	type: String,
-	cart: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "Cart"
-	},
-	view: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref: "View"
-	}
-});
-
-userSchema.plugin(passportLocalMongoose);
 
 var User = mongoose.model("User", userSchema);*/
 
