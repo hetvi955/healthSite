@@ -1,6 +1,7 @@
 const Profile = require("../models/profile")
 const Cart = require("../models/cart")
 const Product = require("../models/product")
+const User = require("../models/user")
 const express = require('express');
 const router = express.Router();
 const {isLoggedIn,isLoggedInA} = require("../middleware/fixers");
@@ -12,12 +13,17 @@ const {isLoggedIn,isLoggedInA} = require("../middleware/fixers");
 router.get("/", isLoggedIn, function(req, res) {
 	var user = req.user;
 	var total = 0;
+	console.log("user",req.user)
+	console.log("cart",user.cart)
+	User.findById(req.user._id ,(err,result)=>{
+         console.log("results",result)
+	})
 	Cart.findById(user.cart).populate('product').exec(function(err, product) {
 		if(err) {
 			console.log(err);
 		} 
 		else {
-			// console.log(product);
+			 console.log("product",product);
 			product.product.forEach(function(p) {
 				total += (p.quantity * p.price);
 			});
