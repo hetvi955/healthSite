@@ -13,17 +13,17 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
 <body>
     <div class="myrecord">
         <h1 style="margin:0;padding-left: 100px; color: navy; padding-top: 30px; background-color: #E7F3FF;"><i class="fa fa-heartbeat" style="padding-right: 10px;" aria-hidden="true"></i>My Health Record</h1>
-        <p style="margin:0;padding-left: 300px; background-color: #E7F3FF;"> ~ Help us help you! ~</p>
+        <p style="margin:0;padding-left: 250px; background-color: #E7F3FF;"> ~ Feel free to share us your experience ~</p>
         
         <hr style="margin:0;">
         <form method="POST" action="" id="formdata">
-            <label for="date" style="padding-right: 5px;">Start time</label>
+            <label for="date" style="padding-right: 5px;"><i class="fa fa-clock-o" aria-hidden="true" style="padding-right: 5px;"></i>Start time</label>
             <input type="datetime" id="date" style="padding: 5px;"/>
             <br><br>
-            <label for="date" style="padding-right: 5px;">End time </label>
+            <label for="date" style="padding-right: 5px;"><i class="fa fa-clock-o" aria-hidden="true" style="padding-right: 5px;"></i>End time </label>
             <input type="datetime" id="date" style="padding: 5px;"/>
             <br><br>
-            <label style="padding-right: 5px;">Attack type  </label>
+            <label style="padding-right: 5px;"><i class="fa fa-ambulance" aria-hidden="true" style="padding-right: 5px;"></i>Attack type  </label>
             <select style="padding: 5px;">
                 <option value="Don't know yet">Don't know yet</option>
                 <option value="Migrane">Migrane</option>
@@ -32,7 +32,7 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
                 <option value="prefer not to say">prefer not to say</option>
             </select>
             <br><br>
-            <label style="padding-right: 5px;">Pain level </label>
+            <label style="padding-right: 5px;"><i class="fa fa-heart-o" aria-hidden="true" style="padding-right: 5px;"></i>Pain level </label>
             <select style="padding: 5px;">
                 <option value="hurts worst">hurts worst</option>
                 <br>
@@ -47,10 +47,10 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
                 <option value="No pain">No pain </option>
             </select>
             <br><br>
-            <label for="treatment" style="padding-right: 5px;">Medication opted</label>
+            <label for="treatment" style="padding-right: 5px;"> <i class="fa fa-medkit" aria-hidden="true" style="padding-right: 5px;"></i>Medication opted</label>
             <input type="text" id="treatment" style="padding: 5px;"/>
             <br><br>
-            <label style="padding-right: 5px;">Relief methods </label>
+            <label style="padding-right: 5px;"><i class="fa fa-recycle" aria-hidden="true" style="padding-right: 5px;"></i>Relief methods </label>
             <select style="padding: 5px;">
                 <option value="sleep">sleep</option>
                 <option value="yoga/meditation">yoga/meditation</option>
@@ -65,7 +65,7 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
                 <option value="other">other</option>
             </select>
             <br><br>
-            <label style="padding-right: 5px;">Symptoms </label>
+            <label style="padding-right: 5px;"><i class="fa fa-assistive-listening-systems" aria-hidden="true" style="padding-right: 5px;"></i>Symptoms </label>
             <select style="padding: 5px;">
                 <option value="Nasal congestion">Nasal congestion</option>
                 <option value="Neck Pain">Neck Pain</option>
@@ -80,7 +80,7 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
                 <option value="other">other</option>
             </select>
             <br><br>
-            <label style="padding-right: 5px;">Did you see it coming? </label>
+            <label style="padding-right: 5px;"><i class="fa fa-eye" aria-hidden="true"style="padding-right: 5px;"></i>Did you see it coming? </label>
             <select style="padding: 5px;">
                 <option value="No">No</option>
                 <option value="Weakness">Weakness</option>
@@ -92,7 +92,7 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
                 <option value="other">other</option>
             </select>
             <br><br>
-            <label style="padding-right: 5px;">how did it affected your activities? </label>
+            <label style="padding-right: 5px;"><i class="fa fa-futbol-o" aria-hidden="true" style="padding-right: 5px;"></i>How did it affected your activities? </label>
             <select style="padding: 5px;">
                 <option value="No effect">No effect</option>
                 <option value="missed family time">missed family time</option>
@@ -104,9 +104,10 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
                 <option value="other">other</option>
             </select>
             <br><br>
-            <label for="note" style="padding-right: 5px;">Short Note</label>
-            <input type="text" id="note" style="padding: 5px;"/>
-        
+            <label for="note"> <i class="fa fa-comments-o" aria-hidden="true" style="padding-right: 5px;"></i>Short Note :</label>
+    <br>
+    <textarea name="" id="" style="padding: 5px;"type="text" id="note" placeholder="Is there something you want to share?"></textarea>
+
             <br><br><br>
             <input type="submit" value="Save my record" class="btn btn-primary"/>
         

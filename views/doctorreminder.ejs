@@ -14,17 +14,17 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
     
 </body>
 </html>
-<h1 style="margin:0;padding-left: 100px; color: navy; padding-top: 30px; background-color: #E7F3FF;"><i class="fa fa-heartbeat" style="padding-right: 10px;" aria-hidden="true"></i>Book my doctor!</h1>
-        <p style="margin:0;padding-left: 300px; background-color: #E7F3FF;"> ~ Help us help you! ~</p>
+<h1 style="margin:0;padding-left: 100px; color: navy; padding-top: 30px; background-color: #E7F3FF;"><i class="fa fa-user-md" aria-hidden="true" style="padding-right:10px ;"></i>Book my doctor!</h1>
+        <p style="margin:0;padding-left: 250px; background-color: #E7F3FF;"> ~ We can help you find a doc! ~</p>
         
         <hr style="margin:0;">
         <br><br>
 
 <form  style='padding-left: 100px;' method="POST" action="">
-    <label for="date"> DATE</label>
+    <label for="date"><i class="fa fa-calendar" aria-hidden="true" style="padding-right: 5px;"></i> DATE</label>
     <input style="padding: 5px;" type="date" id="date"/>
     <br><br>
-    <label>Doctor Type</label>
+    <label><i class="fa fa-stethoscope" aria-hidden="true" style="padding-right: 5px;"></i>  Doctor Type</label>
     <select style="padding: 5px;">
         <option value="Neurologist">Neurologist</option>
         <option value="General Physician">General Physician</option>
@@ -33,12 +33,15 @@ integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ
         <option value="other">other</option>
     </select>
     <br><br>
-    <label for="treatment">Treatment</label>
-    <input style="padding: 5px;"type="text" id="treatment"/>
+    <label for="treatment"> <i class="fa fa-medkit" aria-hidden="true" style="padding-right: 5px;"></i>Treatment :</label>
+    <br>
+    <textarea name="" id="treatment" type='text' style="padding: 5px;" placeholder="What kind of treatments did you undergo?"></textarea>
+    
 
     <br><br>
-    <label for="note">Short Note</label>
-    <input style="padding: 5px;"type="text" id="note"/>
+    <label for="note"> <i class="fa fa-comments-o" aria-hidden="true" style="padding-right: 5px;"></i>Short Note :</label>
+    <br>
+    <textarea name="" id="" style="padding: 5px;"type="text" id="note" placeholder="Is there something you want to share?"></textarea>
 
     <br><br>
     <input type="submit" value="Save" class="btn btn-primary"/>
